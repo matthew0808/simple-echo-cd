@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-echo-deployment
+  labels:
+    app: simple-echo-deployment-lb
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: simple-echo
+      customekey: key-value
+  template:
+    metadata:
+      labels:
+        app: simple-echo
+        customekey: key-value
+    spec:
+      containers:
+      - name: simple-echo-container
+        image: tmanck/simple-echo-image:v0.0.1
+        ports:
+        - containerPort: 80
