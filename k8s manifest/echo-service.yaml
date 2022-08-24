@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: simple-echo-service-nodeport
 spec:
-  type: nodePort
+  type: NodePort
   selector:
     app: simple-echo
     customekey: key-value
@@ -11,4 +11,4 @@ spec:
       # By default and for convenience, the `targetPort` is set to the same value as the `port` field.
     - port: 6580
       targetPort: 80
-      nodePort: 30007
+      nodePort: 30027
